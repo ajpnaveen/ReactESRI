@@ -21,7 +21,10 @@ import { checkAuth, startAuth, completeAuth } from "../redux/reducers/auth";
 // Component imports
 import LoadScreen from "./LoadScreen";
 import Main from "./Main";
-
+import DFT from "./DFT";
+import DataGrid from "./DataGrid";
+import DFTPHomepage from "./DFTPHomepage"
+import 'bootstrap/dist/css/bootstrap.min.css';
 // Component definition
 const App = props => {
   // we'll use the url to determin sign-in state
@@ -91,7 +94,11 @@ const App = props => {
   return (
     <>
       <Route path="/main" component={Main} />
-      <Redirect to="/main" />
+      <Route path="/dft" component={DFT} />
+      <Route path="/datagrid" component={DataGrid} />
+      <Route path="/homepage" component={DFTPHomepage} />
+      <Redirect from="/" to="homepage" />
+
     </>
   );
 };
